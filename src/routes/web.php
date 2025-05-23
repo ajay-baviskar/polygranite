@@ -83,7 +83,7 @@ Route::get('/forgot-password', function () {
 })->name('password.request');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 Route::get('/', [PortfolioController::class, 'index'])->name('home');
-Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
+Route::get('/portfolio', [PortfolioController::class, 'index2'])->name('portfolio');
 Route::get('/portfolio/create', [PortfolioController::class, 'create'])->middleware('auth')->name('portfolio.create');
 Route::post('/portfolio', [PortfolioController::class, 'store'])->middleware('auth')->name('portfolio.store');
 Route::get('/portfolio-details/{id}', [PortfolioController::class, 'show'])->name('portfolio.details');

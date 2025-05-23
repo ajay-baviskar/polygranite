@@ -37,7 +37,7 @@
         <section id="contact" class="contact">
             <div class="container">
                 <div>
-                    <iframe style="border:0; width: 100%; height: 270px;" src="{{ $settings['contact_map_url'] ?? 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621' }}" frameborder="0" allowfullscreen></iframe>
+                    <iframe style="border:0; width: 100%; height: 270px;" src="{{ $settings['contact_map_url'] ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1887.2531602385263!2d73.33695720674591!3d18.908970086141743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7fb98a76f34e9%3A0x804ed4319572877f!2sRadheya%20enterprises!5e0!3m2!1sen!2sin!4v1747997220044!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade' }}" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="row mt-5">
                     <div class="col-lg-4">
@@ -45,7 +45,7 @@
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Location:</h4>
-                                <p>{{ $settings['contact_address'] ?? 'A108 Adam Street, New York, NY 535022' }}</p>
+                                <p>{{ $settings['contact_address'] ?? 'Shop No 04 Midas villa Apt,Sanjay nagar, Dahiwali,Tal-Karjat,Dist-Raigad' }}</p>
                             </div>
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
@@ -55,7 +55,7 @@
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
                                 <h4>Call:</h4>
-                                <p>{{ $settings['contact_phone'] ?? '+1 5589 55488 55' }}</p>
+                                <p>{{ $settings['contact_phone'] ?? '+91 70665 54459' }}</p>
                             </div>
                         </div>
                     </div>

@@ -22,6 +22,14 @@ class PortfolioController extends Controller
         return view('index', compact('portfolioItems', 'services'));
     }
 
+
+    public function index2()
+    {
+        $portfolioItems = PortfolioItem::all();
+        $services = Service::all();
+        return view('portfolio', compact('portfolioItems', 'services'));
+    }
+
     public function create()
     {
         return view('portfolio.create');
