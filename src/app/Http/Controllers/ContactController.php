@@ -3,47 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
-use App\Models\Service;
-use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth')->only(['list']);
-    }
-
     public function index()
     {
-        $services = Service::all();
-        $settings = Setting::pluck('value', 'key')->toArray();
-        return view('contact', compact('services', 'settings'));
+        return view('contact');
     }
-
-    // public function store(Request $request)
-    // {
-    //     $validator = Validator::make($request->all(), [
-    //         'name' => 'required|string|max:255',
-    //         'email' => 'required|email|max:255',
-    //         'subject' => 'required|string|max:255',
-    //         'message' => 'required|string',
-    //     ]);
-
-    //     if ($validator->fails()) {
-    //         return redirect()->back()->withErrors($validator)->withInput();
-    //     }
-
-    //     Contact::create([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'subject' => $request->subject,
-    //         'message' => $request->message,
-    //     ]);
-
-    //     return redirect()->route('contact')->with('success', 'Your message has been sent. Thank you!');
-    // }
 
     public function store(Request $request)
     {
@@ -59,11 +27,28 @@ class ContactController extends Controller
         }
 
         Contact::create($request->only(['name', 'email', 'subject', 'message']));
-        return redirect()->route('contact')->with('success', 'Your message has been sent. Thank you!');
+
+        return redirect()->route('contact')->with('success', 'Message sent successfully!');
     }
-    public function list()
+
+    public function list(Request $request)
     {
-        $contacts = Contact::all();
-        return view('contact.list', compact('contacts'));
+        $sort = $request->query('sort', 'created_at');
+        $dir = $request->query('dir', 'desc');
+        $contacts = Contact::orderBy($sort, $dir)->paginate(10);
+        return view('contact-list', compact('contacts'));
+    }
+
+    public function show($id)
+    {
+        $contact = Contact::findOrFail($id);
+        return response()->json($contact);
+    }
+
+    public function destroy($id)
+    {
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
+        return redirect()->route('contact.list')->with('success', 'Contact submission deleted successfully!');
     }
 }

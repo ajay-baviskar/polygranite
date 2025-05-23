@@ -19,58 +19,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
+// Public Routes
+Route::get('/', [PortfolioController::class, 'index'])->name('home');
+Route::get('/portfolio', [PortfolioController::class, 'index2'])->name('portfolio');
+Route::get('/portfolio-details/{id}', [PortfolioController::class, 'show'])->name('portfolio.details');
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-// Route::get('portfolio', function () {
-//     return view('portfolio');
-// });
-
-Route::get('services', function () {
-    return view('services');
-});
-
-Route::get('about', function () {
+Route::get('/about', function () {
     return view('about');
-});
+})->name('about');
 
-
-Route::get('pricing', function () {
+Route::get('/pricing', function () {
     return view('pricing');
-});
+})->name('pricing');
 
-Route::get('blog', function () {
+Route::get('/blog', function () {
     return view('blog');
-});
+})->name('blog');
 
-Route::get('contact', function () {
-    return view('contact');
-});
-
-Route::get('portfolio-details', function () {
-    return view('portfolio-details');
-});
-// Route::view('portfolio-details','portfolio');
-
-Route::get('admin', function () {
-    return view('admin/admin');
-});
-
-
-
-
-// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-// Route::post('/login', [LoginController::class, 'login'])->name('login');
-// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-// Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-// Route::post('/register', [RegisterController::class, 'register'])->name('register');
-// Route::get('/forgot-password', function () {
-//     return view('forgot-password'); // Assumes you have a forgot-password.blade.php
-// })->name('password.request');
-// Route::get('/dashboard', function () {
-//     return view('admin/admin'); // Assumes you have a dashboard.blade.php
-// })->middleware('auth')->name('dashboard');
+// Authentication Routes
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -81,17 +50,26 @@ Route::get('/auth/google/callback', [RegisterController::class, 'handleGoogleCal
 Route::get('/forgot-password', function () {
     return view('forgot-password');
 })->name('password.request');
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
-Route::get('/', [PortfolioController::class, 'index'])->name('home');
-Route::get('/portfolio', [PortfolioController::class, 'index2'])->name('portfolio');
-Route::get('/portfolio/create', [PortfolioController::class, 'create'])->middleware('auth')->name('portfolio.create');
-Route::post('/portfolio', [PortfolioController::class, 'store'])->middleware('auth')->name('portfolio.store');
-Route::get('/portfolio-details/{id}', [PortfolioController::class, 'show'])->name('portfolio.details');
-Route::get('/services', [ServiceController::class, 'index'])->name('services');
-Route::get('/service/create', [ServiceController::class, 'create'])->middleware('auth')->name('service.create');
-Route::post('/service', [ServiceController::class, 'store'])->middleware('auth')->name('service.store');
-Route::get('/feature/create', [ServiceController::class, 'createFeature'])->middleware('auth')->name('feature.create');
-Route::post('/feature', [ServiceController::class, 'storeFeature'])->middleware('auth')->name('feature.store');
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-Route::get('/contact/list', [ContactController::class, 'list'])->middleware('auth')->name('contact.list');
+
+// Admin Routes (Protected)
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/portfolio/list', [PortfolioController::class, 'list'])->name('portfolio.list');
+    Route::get('/portfolio/create', [PortfolioController::class, 'create'])->name('portfolio.create');
+    Route::post('/portfolio', [PortfolioController::class, 'store'])->name('portfolio.store');
+    Route::get('/portfolio/{id}/edit', [PortfolioController::class, 'edit'])->name('portfolio.edit');
+    Route::put('/portfolio/{id}', [PortfolioController::class, 'update'])->name('portfolio.update');
+    Route::delete('/portfolio/{id}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
+    Route::get('/service/create', [ServiceController::class, 'create'])->name('service.create');
+    Route::post('/service', [ServiceController::class, 'store'])->name('service.store');
+    Route::get('/feature/create', [ServiceController::class, 'createFeature'])->name('feature.create');
+    Route::post('/feature', [ServiceController::class, 'storeFeature'])->name('feature.store');
+    Route::get('/contact/list', [ContactController::class, 'list'])->name('contact.list');
+    Route::get('/contact/{id}', [ContactController::class, 'show'])->name('contact.show');
+    Route::delete('/contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+});
+
+// Admin Fallback
+Route::get('/admin', function () {
+    return view('admin/admin');
+})->middleware('auth')->name('admin');

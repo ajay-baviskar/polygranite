@@ -30,6 +30,12 @@
             <!-- Heading -->
             <div class="sidebar-heading">Management</div>
             <!-- Nav Item - Add Portfolio Item -->
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ route('portfolio.list') }}">
+                    <i class="fas fa-folder fa-fw"></i>
+                    <span>Portfolio Items</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('portfolio.create') }}">
                     <i class="fas fa-plus fa-fw"></i>
