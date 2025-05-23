@@ -168,7 +168,7 @@
     </section><!-- End Clients Section -->
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    {{-- <section id="services" class="services">
       <div class="container">
 
         <div class="row">
@@ -217,8 +217,22 @@
         </div>
 
       </div>
-    </section><!-- End Services Section -->
-
+    </section><!-- End Services Section --> --}}
+<section id="services" class="services">
+    <div class="container">
+        <div class="row">
+            @foreach ($services as $service)
+                <div class="col-md-6 {{ $loop->iteration > 2 ? 'mt-4 mt-md-0' : '' }}">
+                    <div class="icon-box">
+                        <i class="{{ $service->icon }}"></i>
+                        <h4>{{ $service->title }}</h4>
+                        <p>{{ $service->description }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
 
  <section id="portfolio" class="portfolio">
     <div class="container">

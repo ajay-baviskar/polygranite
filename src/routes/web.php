@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,3 +87,5 @@ Route::get('/', [PortfolioController::class, 'index'])->name('home');
 Route::get('/portfolio/create', [PortfolioController::class, 'create'])->middleware('auth')->name('portfolio.create');
 Route::post('/portfolio', [PortfolioController::class, 'store'])->middleware('auth')->name('portfolio.store');
 Route::get('/portfolio-details/{id}', [PortfolioController::class, 'show'])->name('portfolio.details');
+Route::get('/service/create', [ServiceController::class, 'create'])->middleware('auth')->name('service.create');
+Route::post('/service', [ServiceController::class, 'store'])->middleware('auth')->name('service.store');

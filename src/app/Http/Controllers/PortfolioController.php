@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PortfolioItem;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -14,11 +15,12 @@ class PortfolioController extends Controller
         $this->middleware('auth')->only(['create', 'store']);
     }
 
-    public function index()
-    {
-        $portfolioItems = PortfolioItem::all();
-        return view('index', compact('portfolioItems'));
-    }
+  public function index()
+{
+    $portfolioItems = PortfolioItem::all();
+    $services = Service::all();
+    return view('index', compact('portfolioItems', 'services'));
+}
 
     public function create()
     {
