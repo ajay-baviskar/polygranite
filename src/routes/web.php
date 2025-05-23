@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PortfolioController;
@@ -18,13 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
-Route::get('portfolio', function () {
-    return view('portfolio');
-});
+// Route::get('portfolio', function () {
+//     return view('portfolio');
+// });
 
 Route::get('services', function () {
     return view('services');
@@ -70,7 +71,6 @@ Route::get('admin', function () {
 // Route::get('/dashboard', function () {
 //     return view('admin/admin'); // Assumes you have a dashboard.blade.php
 // })->middleware('auth')->name('dashboard');
-
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -83,6 +83,7 @@ Route::get('/forgot-password', function () {
 })->name('password.request');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 Route::get('/', [PortfolioController::class, 'index'])->name('home');
+Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
 Route::get('/portfolio/create', [PortfolioController::class, 'create'])->middleware('auth')->name('portfolio.create');
 Route::post('/portfolio', [PortfolioController::class, 'store'])->middleware('auth')->name('portfolio.store');
 Route::get('/portfolio-details/{id}', [PortfolioController::class, 'show'])->name('portfolio.details');
@@ -91,3 +92,6 @@ Route::get('/service/create', [ServiceController::class, 'create'])->middleware(
 Route::post('/service', [ServiceController::class, 'store'])->middleware('auth')->name('service.store');
 Route::get('/feature/create', [ServiceController::class, 'createFeature'])->middleware('auth')->name('feature.create');
 Route::post('/feature', [ServiceController::class, 'storeFeature'])->middleware('auth')->name('feature.store');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/contact/list', [ContactController::class, 'list'])->middleware('auth')->name('contact.list');

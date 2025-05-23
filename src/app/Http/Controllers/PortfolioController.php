@@ -15,12 +15,12 @@ class PortfolioController extends Controller
         $this->middleware('auth')->only(['create', 'store']);
     }
 
-  public function index()
-{
-    $portfolioItems = PortfolioItem::all();
-    $services = Service::all();
-    return view('index', compact('portfolioItems', 'services'));
-}
+    public function index()
+    {
+        $portfolioItems = PortfolioItem::all();
+        $services = Service::all();
+        return view('index', compact('portfolioItems', 'services'));
+    }
 
     public function create()
     {
