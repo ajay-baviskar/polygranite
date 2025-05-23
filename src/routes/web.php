@@ -71,7 +71,6 @@ Route::get('admin', function () {
 //     return view('admin/admin'); // Assumes you have a dashboard.blade.php
 // })->middleware('auth')->name('dashboard');
 
-
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -87,5 +86,8 @@ Route::get('/', [PortfolioController::class, 'index'])->name('home');
 Route::get('/portfolio/create', [PortfolioController::class, 'create'])->middleware('auth')->name('portfolio.create');
 Route::post('/portfolio', [PortfolioController::class, 'store'])->middleware('auth')->name('portfolio.store');
 Route::get('/portfolio-details/{id}', [PortfolioController::class, 'show'])->name('portfolio.details');
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
 Route::get('/service/create', [ServiceController::class, 'create'])->middleware('auth')->name('service.create');
 Route::post('/service', [ServiceController::class, 'store'])->middleware('auth')->name('service.store');
+Route::get('/feature/create', [ServiceController::class, 'createFeature'])->middleware('auth')->name('feature.create');
+Route::post('/feature', [ServiceController::class, 'storeFeature'])->middleware('auth')->name('feature.store');

@@ -28,7 +28,7 @@
             </ul> --}}
           </li>
           <li><a href="{{url('services')}}">Services</a></li>
-          <li><a href="{{url('port')}}">polygranite sheets</a></li>
+          <li><a href="{{url('portfolio')}}">polygranite sheets</a></li>
           {{-- <li><a href="{{url('pricing')}}">Pricing</a></li> --}}
           {{-- <li><a href="{{url('blog')}}">Blog</a></li> --}}
 
