@@ -7,6 +7,9 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\NewsletterController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,6 +71,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/contact/list', [ContactController::class, 'list'])->name('contact.list');
     Route::get('/contact/{id}', [ContactController::class, 'show'])->name('contact.show');
     Route::delete('/contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+    Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+
+    Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 });
 
 // Admin Fallback
