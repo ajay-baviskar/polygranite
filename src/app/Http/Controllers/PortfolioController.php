@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PortfolioItem;
 use App\Models\Service;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -19,7 +20,8 @@ class PortfolioController extends Controller
     {
         $portfolioItems = PortfolioItem::all();
         $services = Service::all();
-        return view('index', compact('portfolioItems', 'services'));
+        $reviews = Review::latest()->take(6)->get();
+        return view('index', compact('portfolioItems', 'services', 'reviews'));
     }
 
     public function index2()
@@ -92,7 +94,7 @@ class PortfolioController extends Controller
         $item = PortfolioItem::findOrFail($id);
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string|max:255',
+            'bed' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'filter' => 'required|in:filter-app,filter-web,filter-card',
             'category' => 'nullable|string|max:255',

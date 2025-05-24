@@ -88,6 +88,9 @@
                                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" value="{{ old('subject') }}" required>
                             </div>
                             <div class="form-group mt-3">
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="phone" value="{{ old('phone') }}" required>
+                            </div>
+                            <div class="form-group mt-3">
                                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required>{{ old('message') }}</textarea>
                             </div>
                             <div class="my-3">
@@ -136,11 +139,11 @@
                     </div>
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Our Services</h4>
-                        <ul>
+                        {{-- <ul>
                             @foreach ($services as $service)
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">{{ $service->title }}</a></li>
                             @endforeach
-                        </ul>
+                        </ul> --}}
                     </div>
                     <div class="col-lg-4 col-md-6 footer-newsletter">
                         <h4>Our Newsletter</h4>

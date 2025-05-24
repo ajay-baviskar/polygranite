@@ -1,0 +1,38 @@
+.reviews .review-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+.reviews .review-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+.reviews .rating i {
+  font-size: 1.2rem;
+}
+.reviews .review-text {
+  font-style: italic;
+  color: #555;
+}
+.reviews .swiper {
+  padding-bottom: 40px;
+}
+.reviews .swiper-pagination-bullet-active {
+  background: #007bff;
+}
+.submit-review .card {
+  border: none;
+  border-radius: 10px;
+}
+.submit-review .form-label {
+  font-weight: 500;
+}
+.submit-review .btn-get-started {
+
+  padding: 10px 30px;
+  font-size: 1rem;
+}
+
