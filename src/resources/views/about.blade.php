@@ -5,307 +5,250 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>About - Sailor Bootstrap Template</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>About - Radheya Enterprise</title>
+  <meta content="Learn about Radheya Enterprise and our Polygranite sheet solutions" name="description">
+  <meta content="Radheya Enterprise, Polygranite sheets, interior design" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Sailor
-  * Updated: Mar 10 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    /* Animation Fallback */
+    .about .content,
+    .about .content h2,
+    .about .content h3,
+    .about .portfolio-wrap,
+    .about .content p,
+    .about .content li,
+    .footer-info,
+    .footer-links li,
+    .footer-newsletter,
+    .copyright,
+    .credits {
+      opacity: 1 !important;
+    }
+    .team.section-bg {
+            background: #f8f9fa;
+            padding: 50px 0;
+        }
+        .team .section-title h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            position: relative;
+        }
+        .team .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(45deg, #4e73df, #1cc88a);
+        }
+        .team .member {
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .team .member:hover {
+            transform: translateY(-3px);
+        }
+        .team .pic {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .team .pic img {
+            transition: transform 0.3s ease;
+        }
+        .team .member:hover .pic img {
+            transform: scale(1.05);
+        }
+        .team .member-info h4 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+        }
+        .team .member-info span {
+            font-size: 1rem;
+            color: #1cc88a;
+        }
+        .team .social a {
+            color: #34495e;
+            font-size: 1.2rem;
+            margin: 0 5px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .team .social a:hover {
+            color: #1cc88a;
+            transform: scale(1.2);
+        }
+  </style>
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
-  {{-- <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center">
-
-      <h1 class="logo me-auto"><a href="index.html">Sailor</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-
-          <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="about.html" class="active">About</a></li>
-              <li><a href="team.html">Team</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
-
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
-
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="index.html" class="getstarted">Get Started</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header> --}}
-  @include('header');
-
-  <!-- End Header -->
+  @include('header')
 
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
+    <section id="breadcrumbs" class="breadcrumbs" data-aos="fade-down" data-aos-duration="800">
       <div class="container">
-
         <div class="d-flex justify-content-between align-items-center">
-          <h2>About</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
+          <h2 class="animate__animated animate__fadeInDown">About</h2>
+          <ol data-aos="fade-in" data-aos-delay="100" data-aos-duration="800">
+            <li><a href="{{ route('home') }}">Home</a></li>
             <li>About</li>
           </ol>
         </div>
-
       </div>
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about" data-aos="fade-up" data-aos-duration="800">
       <div class="container">
-
         <div class="row content">
           <div class="col-lg-6">
-            <h2>Radheya Enterprise</h2>
-            <h3>"Embark on a journey with Radheya Enterprise, where Polygranite sheets seamlessly blend innovation and elegance to redefine your living spaces."</h3>
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/radhey2.jpg" class="img-fluid" alt="">
-            
+            <h2 data-aos="fade-up" data-aos-delay="100" data-aos-duration="600" class="animate__animated animate__fadeInUp">Radheya Enterprise</h2>
+            <h3 data-aos="fade-up" data-aos-delay="150" data-aos-duration="600" class="animate__animated animate__fadeInUp">"Embark on a journey with Radheya Enterprise, where Polygranite sheets seamlessly blend innovation and elegance to redefine your living spaces."</h3>
+            <div class="portfolio-wrap" data-aos="fade-right" data-aos-delay="200" data-aos-duration="600">
+              <img src="{{ asset('assets/img/portfolio/radhey2.jpg') }}" class="img-fluid animate__animated animate__fadeInRight" alt="Radheya Enterprise">
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
+            <p data-aos="fade-up" data-aos-delay="250" data-aos-duration="600" class="animate__animated animate__fadeInUp">
               Welcome to <b>Radheya Enterprise</b>, where innovation meets sophistication in the realm of interior design. We take pride in introducing our exceptional Polygranite sheets, a revolutionary solution to elevate your living spaces. Our Polygranite sheets are not just walls; they are canvases waiting to be adorned with elegance. Crafted with precision and designed for durability, these sheets redefine the concept of luxury within your home or business. Discover the perfect blend of aesthetic appeal and functionality as Radheya brings you a diverse range of Polygranite sheets that transform your walls into timeless masterpieces. Join us in creating a space that reflects your style, personality, and the essence of enduring beauty.
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> "Stone Elegance: Unveiling the Beauty of Polygranite Sheets"</li>
-              <li><i class="ri-check-double-line"></i> "Beyond Walls: The Artistry of Radheya's Polygranite Masterpieces"</li>
-              <li><i class="ri-check-double-line"></i>"Luxury Redefined: Explore the World of Polygranite Elegance"</li>
-              <li><i class="ri-check-double-line"></i>"Redefine Your Space: The Polygranite Revolution by Radheya Enterprise"</li>
-              <li><i class="ri-check-double-line"></i> "Polygranite Panache: Elevate Your Interiors with Radheya's Signature Sheets"</li>
-              <li><i class="ri-check-double-line"></i> "Innovative Walls, Lasting Impressions: Radheya's Polygranite Sheets"</li>
-              <li><i class="ri-check-double-line"></i> "Luxury Unveiled: Radheya Enterprise's Polygranite Extravaganza"</li>
-
-              
+              @foreach ([
+                  "Stone Elegance: Unveiling the Beauty of Polygranite Sheets",
+                  "Beyond Walls: The Artistry of Radheya's Polygranite Masterpieces",
+                  "Luxury Redefined: Explore the World of Polygranite Elegance",
+                  "Redefine Your Space: The Polygranite Revolution by Radheya Enterprise",
+                  "Polygranite Panache: Elevate Your Interiors with Radheya's Signature Sheets",
+                  "Innovative Walls, Lasting Impressions: Radheya's Polygranite Sheets",
+                  "Luxury Unveiled: Radheya Enterprise's Polygranite Extravaganza"
+              ] as $index => $item)
+                <li data-aos="fade-up" data-aos-delay="{{ 300 + ($index * 30) }}" data-aos-duration="600" class="animate__animated animate__fadeInUp">
+                  <i class="ri-check-double-line"></i> "{{ $item }}"
+                </li>
+              @endforeach
             </ul>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+            <p class="fst-italic" data-aos="fade-up" data-aos-delay="450" data-aos-duration="600" class="animate__animated animate__fadeInUp">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
         </div>
-
       </div>
     </section><!-- End About Section -->
-
-    <!-- ======= Team Section ======= -->
-    {{-- <section id="team" class="team section-bg">
+    <section id="team" class="team section-bg" data-aos="fade-up" data-aos-duration="800">
       <div class="container">
-
-        <div class="section-title">
-          <h2>Team</h2>
-          <p>Our Hardowrking Team</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-6">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-                <p>Explicabo voluptatem mollitia et repellat</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
+          <div class="section-title">
+              <h2 class="animate__animated animate__fadeInDown">Team</h2>
+              <p class="animate__animated animate__fadeInDown" data-aos-delay="100">Our Hardworking Team</p>
           </div>
-
-          <div class="col-lg-6 mt-4 mt-lg-0">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-                <p>Aut maiores voluptates amet et quis</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
+          <div class="row">
+              <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                  <div class="member d-flex align-items-start">
+                      <div class="pic"><img src="{{ asset('assets/img/team/team-1.jpg') }}" class="img-fluid" alt="Walter White"></div>
+                      <div class="member-info">
+                          <h4>Walter White</h4>
+                          <span>Chief Executive Officer</span>
+                          <p>Explicabo voluptatem mollitia et repellat</p>
+                          <div class="social">
+                              <a href=""><i class="ri-twitter-fill"></i></a>
+                              <a href=""><i class="ri-facebook-fill"></i></a>
+                              <a href=""><i class="ri-instagram-fill"></i></a>
+                              <a href=""><i class="ri-linkedin-box-fill"></i></a>
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <p>Quisquam facilis cum velit laborum corrupti</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
+              <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+                  <div class="member d-flex align-items-start">
+                      <div class="pic"><img src="{{ asset('assets/img/team/team-2.jpg') }}" class="img-fluid" alt="Sarah Jhonson"></div>
+                      <div class="member-info">
+                          <h4>Sarah Jhonson</h4>
+                          <span>Product Manager</span>
+                          <p>Aut maiores voluptates amet et quis</p>
+                          <div class="social">
+                              <a href=""><i class="ri-twitter-fill"></i></a>
+                              <a href=""><i class="ri-facebook-fill"></i></a>
+                              <a href=""><i class="ri-instagram-fill"></i></a>
+                              <a href=""><i class="ri-linkedin-box-fill"></i></a>
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <p>Dolorum tempora officiis odit laborum officiis</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
+              <div class="col-lg-6 mt-4" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                  <div class="member d-flex align-items-start">
+                      <div class="pic"><img src="{{ asset('assets/img/team/team-3.jpg') }}" class="img-fluid" alt="William Anderson"></div>
+                      <div class="member-info">
+                          <h4>William Anderson</h4>
+                          <span>CTO</span>
+                          <p>Quisquam facilis cum velit laborum corrupti</p>
+                          <div class="social">
+                              <a href=""><i class="ri-twitter-fill"></i></a>
+                              <a href=""><i class="ri-facebook-fill"></i></a>
+                              <a href=""><i class="ri-instagram-fill"></i></a>
+                              <a href=""><i class="ri-linkedin-box-fill"></i></a>
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
+              <div class="col-lg-6 mt-4" data-aos="fade-up" data-aos-delay="500" data-aos-duration="600">
+                  <div class="member d-flex align-items-start">
+                      <div class="pic"><img src="{{ asset('assets/img/team/team-4.jpg') }}" class="img-fluid" alt="Amanda Jepson"></div>
+                      <div class="member-info">
+                          <h4>Amanda Jepson</h4>
+                          <span>Accountant</span>
+                          <p>Dolorum tempora officiis odit laborum officiis</p>
+                          <div class="social">
+                              <a href=""><i class="ri-twitter-fill"></i></a>
+                              <a href=""><i class="ri-facebook-fill"></i></a>
+                              <a href=""><i class="ri-instagram-fill"></i></a>
+                              <a href=""><i class="ri-linkedin-box-fill"></i></a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
-
-        </div>
-
       </div>
-    </section><!-- End Team Section -->
-
-    <!-- ======= Our Skills Section ======= -->
-    <section id="skills" class="skills">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Our Skills</h2>
-          <p>Check our Our Skills</p>
-        </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill">HTML <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">CSS <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill">PHP <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">WordPress/CMS <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Photoshop <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Our Skills Section --> --}}
-
+  </section>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" data-aos="fade-up" data-aos-duration="800">
     <div class="footer-top">
       <div class="container">
         <div class="row">
-
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
             <div class="footer-info">
-              <h3>Sailor</h3>
+              <h3 class="animate__animated animate__fadeInUp">Radheya Enterprise</h3>
               <p>
                 A108 Adam Street <br>
                 NY 535022, USA<br><br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                <strong>Email:</strong> info@radheyaenterprise.com<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -317,67 +260,101 @@
             </div>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+          <div class="col-lg-2 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+            <h4 class="animate__animated animate__fadeInUp">Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li data-aos="fade-up" data-aos-delay="250" data-aos-duration="600">
+                <i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}" class="animate__animated animate__fadeInUp">Home</a>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+                <i class="bx bx-chevron-right"></i> <a href="{{ route('about') }}" class="animate__animated animate__fadeInUp">About us</a>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">
+                <i class="bx bx-chevron-right"></i> <a href="{{ route('services') }}" class="animate__animated animate__fadeInUp">Services</a>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Terms of service</a>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="450" data-aos-duration="600">
+                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Privacy policy</a>
+              </li>
             </ul>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+          <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+            <h4 class="animate__animated animate__fadeInUp">Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">
+                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Web Design</a>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Web Development</a>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="450" data-aos-duration="600">
+                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Product Management</a>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="500" data-aos-duration="600">
+                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Marketing</a>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="550" data-aos-duration="600">
+                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Graphic Design</a>
+              </li>
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          <div class="col-lg-4 col-md-6 footer-newsletter" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+            <h4 class="animate__animated animate__fadeInUp">Our Newsletter</h4>
+            <p>Subscribe to receive updates on our polygranite sheet solutions.</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
-
           </div>
-
         </div>
       </div>
     </div>
 
     <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Sailor</span></strong>. All Rights Reserved
+      <div class="copyright" data-aos="fade-up" data-aos-delay="500" data-aos-duration="600">
+        © Copyright <strong><span>Radheya Enterprise</span></strong>. All Rights Reserved
       </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/sailor-free-bootstrap-theme/ -->
+      <div class="credits" data-aos="fade-up" data-aos-delay="550" data-aos-duration="600">
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" data-aos="zoom-in" data-aos-duration="600"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+  <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="{{ asset('assets/js/main.js') }}"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        if (typeof AOS !== 'undefined') {
+          AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+          });
+        } else {
+          console.warn('AOS library not loaded.');
+        }
+      } catch (error) {
+        console.error('Error during AOS initialization:', error);
+      }
+    });
+  </script>
 
 </body>
 
