@@ -30,6 +30,24 @@
         .copyright,
         .credits {
             opacity: 1 !important;
+        },
+          /* Services Section */
+        .services .icon-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .services .icon-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .services .icon-box i {
+            font-size: 2.5rem;
+            color: #4e73df;
         }
     </style>
 </head>
@@ -49,7 +67,7 @@
             </div>
         </section>
 
-        <section id="services" class="services" data-aos="fade-up" data-aos-duration="800">
+        {{-- <section id="services" class="services" data-aos="fade-up" data-aos-duration="800">
             <div class="container">
                 <div class="row">
                     @foreach ($services as $service)
@@ -58,6 +76,25 @@
                                 <i class="{{ $service->icon ?? 'ri-star-line' }}"></i>
                                 <h4>{{ $service->title ?? 'Service Title' }}</h4>
                                 <p>{{ $service->description ?? 'No description available.' }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section> --}}
+        <section id="services" class="services" data-aos="fade-up">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-aos="fade-in">Our Services</h2>
+                    <p data-aos="fade-in" data-aos-delay="100">Explore the range of Polygranite solutions we offer.</p>
+                </div>
+                <div class="row">
+                    @foreach ($services as $service)
+                        <div class="col-md-6 {{ $loop->iteration > 2 ? 'mt-4 mt-md-0' : '' }}" data-aos="zoom-in" data-aos-delay="{{ $loop->index * 100 }}">
+                            <div class="icon-box">
+                                <i class="{{ $service->icon }}"></i>
+                                <h4>{{ $service->title }}</h4>
+                                <p>{{ $service->description }}</p>
                             </div>
                         </div>
                     @endforeach
