@@ -48,7 +48,7 @@
         .services .icon-box i {
             font-size: 2.5rem;
             color: #4e73df;
-        }
+        },
     </style>
 </head>
 <body>
