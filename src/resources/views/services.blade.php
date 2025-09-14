@@ -19,36 +19,40 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <style>
-        /* Animation Fallback */
-        .services .icon-box,
-        .features .section-title,
-        .features .nav-item,
-        .features .tab-pane,
-        .footer-info,
-        .footer-links li,
-        .footer-newsletter,
-        .copyright,
-        .credits {
-            opacity: 1 !important;
-        },
-          /* Services Section */
-        .services .icon-box {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+  /* Animation Fallback */
+.services .icon-box,
+.features .section-title,
+.features .nav-item,
+.features .tab-pane,
+.footer-info,
+.footer-links li,
+.footer-newsletter,
+.copyright,
+.credits {
+    opacity: 1 !important;
+}
 
-        .services .icon-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
+/* Services Section */
+.services .icon-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .services .icon-box i {
-            font-size: 2.5rem;
-            color: #4e73df;
-        },
+.services .icon-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.services .icon-box i {
+    font-size: 2.5rem;
+    color: #4e73df;
+    margin-bottom: 15px;
+    display: block;
+}
+
     </style>
 </head>
 <body>
