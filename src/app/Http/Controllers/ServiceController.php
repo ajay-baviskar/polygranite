@@ -27,26 +27,31 @@ class ServiceController extends Controller
         return view('service.create');
     }
 
-    public function store(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'icon' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-        ]);
+   public function store(Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+    ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        Service::create([
-            'icon' => $request->icon,
-            'title' => $request->title,
-            'description' => $request->description,
-        ]);
-
-        return redirect()->route('dashboard')->with('success', 'Service added successfully!');
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
     }
+
+    // Save image if uploaded
+    $iconPath = $request->file('icon')
+        ? $request->file('icon')->store('services', 'public')
+        : null;
+
+    Service::create([
+        'icon' => $iconPath,  // save image path instead of string
+        'title' => $request->title,
+        'description' => $request->description,
+    ]);
+
+    return redirect()->route('dashboard')->with('success', 'Service added successfully!');
+}
 
     public function createFeature()
     {

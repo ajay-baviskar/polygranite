@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -8,7 +9,9 @@
     <meta content="polygranite sheets, wall cladding, false ceilings, Radheya Enterprise" name="keywords">
     <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
     <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
     <link href="{{ asset('assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -19,42 +22,66 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <style>
-  /* Animation Fallback */
-.services .icon-box,
-.features .section-title,
-.features .nav-item,
-.features .tab-pane,
-.footer-info,
-.footer-links li,
-.footer-newsletter,
-.copyright,
-.credits {
-    opacity: 1 !important;
-}
+        /* Animation Fallback */
+        .services .icon-box,
+        .features .section-title,
+        .features .nav-item,
+        .features .tab-pane,
+        .footer-info,
+        .footer-links li,
+        .footer-newsletter,
+        .copyright,
+        .credits {
+            opacity: 1 !important;
+        }
 
-/* Services Section */
-.services .icon-box {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        /* Services Section */
+        .services .icon-box {
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.services .icon-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
+        .services .icon-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
 
-.services .icon-box i {
-    font-size: 2.5rem;
-    color: #4e73df;
-    margin-bottom: 15px;
-    display: block;
-}
+        .services .icon-box i {
+            font-size: 2.5rem;
+            color: #4e73df;
+            margin-bottom: 15px;
+            display: block;
+        }
 
+        .icon-box {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .icon-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 5px;
+            /* smaller custom gap */
+        }
     </style>
 </head>
+
 <body>
     @include('header')
 
@@ -94,12 +121,30 @@
                 </div>
                 <div class="row">
                     @foreach ($services as $service)
-                        <div class="col-md-6 {{ $loop->iteration > 2 ? 'mt-4 mt-md-0' : '' }}" data-aos="zoom-in" data-aos-delay="{{ $loop->index * 100 }}">
-                            <div class="icon-box">
+                        <div class="col-md-6 {{ $loop->iteration > 2 ? 'mt-4 mt-md-0' : '' }}" data-aos="zoom-in"
+                            data-aos-delay="{{ $loop->index * 100 }}">
+                            {{-- <div class="icon-box">
                                 <i class="{{ $service->icon }}"></i>
                                 <h4>{{ $service->title }}</h4>
                                 <p>{{ $service->description }}</p>
+                            </div> --}}
+
+                            <div class="icon-box d-flex align-items-center">
+                                {{-- Service Image on Left --}}
+                                <div class="me-0"> {{-- reduced gap from me-3 to me-2 --}}
+                                    <img src="{{ asset('storage/' . $service->icon) }}" alt="Service Icon"
+                                        class="service-icon">
+                                </div>
+
+                                {{-- Content on Right --}}
+                                <div>
+                                    <h4>{{ $service->title }}</h4>
+                                    <p>{{ $service->description }}</p>
+                                </div>
                             </div>
+
+
+
                         </div>
                     @endforeach
                 </div>
@@ -116,27 +161,42 @@
                     <div class="col-lg-3" data-aos="fade-right" data-aos-delay="200" data-aos-duration="600">
                         <ul class="nav nav-tabs flex-column">
                             @foreach ($features as $index => $feature)
-                                <li class="nav-item" data-aos="fade-right" data-aos-delay="{{ 250 + ($index * 50) }}" data-aos-duration="600">
-                                    <a class="nav-link {{ $index === 0 ? 'active show' : '' }} animate__animated animate__fadeInRight" data-bs-toggle="tab" href="#tab-{{ $feature->id }}">{{ $feature->title ?? 'Feature Title' }}</a>
+                                <li class="nav-item" data-aos="fade-right" data-aos-delay="{{ 250 + $index * 50 }}"
+                                    data-aos-duration="600">
+                                    <a class="nav-link {{ $index === 0 ? 'active show' : '' }} animate__animated animate__fadeInRight"
+                                        data-bs-toggle="tab"
+                                        href="#tab-{{ $feature->id }}">{{ $feature->title ?? 'Feature Title' }}</a>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
-                    <div class="col-lg-9 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="300" data-aos-duration="600">
+                    <div class="col-lg-9 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="300"
+                        data-aos-duration="600">
                         <div class="tab-content">
                             @foreach ($features as $index => $feature)
-                                <div class="tab-pane {{ $index === 0 ? 'active show' : '' }}" id="tab-{{ $feature->id }}">
+                                <div class="tab-pane {{ $index === 0 ? 'active show' : '' }}"
+                                    id="tab-{{ $feature->id }}">
                                     <div class="row">
-                                        <div class="col-lg-8 details order-2 order-lg-1" data-aos="fade-left" data-aos-delay="350" data-aos-duration="600">
-                                            <h3 class="animate__animated animate__fadeInLeft">{{ $feature->subtitle ?? 'Feature Subtitle' }}</h3>
-                                            <p class="fst-italic animate__animated animate__fadeInLeft">{{ $feature->title ?? 'Feature Title' }}</p>
-                                            <p class="animate__animated animate__fadeInLeft">{{ $feature->description ?? 'No description available.' }}</p>
+                                        <div class="col-lg-8 details order-2 order-lg-1" data-aos="fade-left"
+                                            data-aos-delay="350" data-aos-duration="600">
+                                            <h3 class="animate__animated animate__fadeInLeft">
+                                                {{ $feature->subtitle ?? 'Feature Subtitle' }}</h3>
+                                            <p class="fst-italic animate__animated animate__fadeInLeft">
+                                                {{ $feature->title ?? 'Feature Title' }}</p>
+                                            <p class="animate__animated animate__fadeInLeft">
+                                                {{ $feature->description ?? 'No description available.' }}</p>
                                         </div>
-                                        <div class="col-lg-4 text-center order-1 order-lg-2" data-aos="fade-right" data-aos-delay="400" data-aos-duration="600">
+                                        <div class="col-lg-4 text-center order-1 order-lg-2" data-aos="fade-right"
+                                            data-aos-delay="400" data-aos-duration="600">
                                             @if ($feature->image_path)
-                                                <img src="{{ Storage::url($feature->image_path) }}" alt="{{ $feature->title ?? 'Feature Image' }}" class="img-fluid animate__animated animate__fadeInRight">
+                                                <img src="{{ Storage::url($feature->image_path) }}"
+                                                    alt="{{ $feature->title ?? 'Feature Image' }}"
+                                                    class="img-fluid animate__animated animate__fadeInRight"
+                                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
                                             @else
-                                                <img src="{{ asset('assets/img/features-placeholder.png') }}" alt="{{ $feature->title ?? 'Feature Image' }}" class="img-fluid animate__animated animate__fadeInRight">
+                                                <img src="{{ asset('assets/img/features-placeholder.png') }}"
+                                                    alt="{{ $feature->title ?? 'Feature Image' }}"
+                                                    class="img-fluid animate__animated animate__fadeInRight">
                                             @endif
                                         </div>
                                     </div>
@@ -157,10 +217,10 @@
                         <div class="footer-info">
                             <h3 class="animate__animated animate__fadeInUp">Radheya Enterprise</h3>
                             <p>
-                                A108 Adam Street <br>
-                                NY 535022, USA<br><br>
-                                <strong>Phone:</strong> +1 5589 55488 55<br>
-                                <strong>Email:</strong> info@radheyaenterprise.com<br>
+                                {{ $settings['contact_address'] ?? 'Shop No 04 Midas villa Apt,Sanjay nagar, Dahiwali,Tal-Karjat,Dist-Raigad' }}<br><br>
+                                <strong>Phone:</strong> {{ $settings['contact_phone'] ?? '+91 70665 54459' }}<br>
+                                <strong>Email:</strong>
+                                {{ $settings['contact_email'] ?? 'info@radheyaenterprise.com' }}<br>
                             </p>
                             <div class="social-links mt-3">
                                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -171,47 +231,60 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                    <div class="col-lg-2 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="200"
+                        data-aos-duration="600">
                         <h4 class="animate__animated animate__fadeInUp">Useful Links</h4>
                         <ul>
                             <li data-aos="fade-up" data-aos-delay="250" data-aos-duration="600">
-                                <i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}" class="animate__animated animate__fadeInUp">Home</a>
+                                <i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}"
+                                    class="animate__animated animate__fadeInUp">Home</a>
                             </li>
                             <li data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
-                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">About us</a>
+                                <i class="bx bx-chevron-right"></i> <a href="#"
+                                    class="animate__animated animate__fadeInUp">About us</a>
                             </li>
                             <li data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">
-                                <i class="bx bx-chevron-right"></i> <a href="{{ route('services') }}" class="animate__animated animate__fadeInUp">Services</a>
+                                <i class="bx bx-chevron-right"></i> <a href="{{ route('services') }}"
+                                    class="animate__animated animate__fadeInUp">Services</a>
                             </li>
                             <li data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
-                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Terms of service</a>
+                                <i class="bx bx-chevron-right"></i> <a href="#"
+                                    class="animate__animated animate__fadeInUp">Terms of service</a>
                             </li>
                             <li data-aos="fade-up" data-aos-delay="450" data-aos-duration="600">
-                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Privacy policy</a>
+                                <i class="bx bx-chevron-right"></i> <a href="#"
+                                    class="animate__animated animate__fadeInUp">Privacy policy</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+                    <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="300"
+                        data-aos-duration="600">
                         <h4 class="animate__animated animate__fadeInUp">Our Services</h4>
                         <ul>
                             <li data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">
-                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Wall Cladding</a>
+                                <i class="bx bx-chevron-right"></i> <a href="#"
+                                    class="animate__animated animate__fadeInRight">Wall Cladding</a>
                             </li>
                             <li data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
-                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">False Ceilings</a>
+                                <i class="bx bx-chevron-right"></i> <a href="#"
+                                    class="animate__animated animate__fadeInRight">False Ceilings</a>
                             </li>
                             <li data-aos="fade-up" data-aos-delay="450" data-aos-duration="600">
-                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Furniture Applications</a>
+                                <i class="bx bx-chevron-right"></i> <a href="#"
+                                    class="animate__animated animate__fadeInRight">Furniture Applications</a>
                             </li>
                             <li data-aos="fade-up" data-aos-delay="500" data-aos-duration="600">
-                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Bathroom Solutions</a>
+                                <i class="bx bx-chevron-right"></i> <a href="#"
+                                    class="animate__animated animate__fadeInRight">Bathroom Solutions</a>
                             </li>
                             <li data-aos="fade-up" data-aos-delay="550" data-aos-duration="600">
-                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Kitchen Countertops</a>
+                                <i class="bx bx-chevron-right"></i> <a href="#"
+                                    class="animate__animated animate__fadeInRight">Kitchen Countertops</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-4 col-md-6 footer-newsletter" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                    <div class="col-lg-4 col-md-6 footer-newsletter" data-aos="fade-up" data-aos-delay="400"
+                        data-aos-duration="600">
                         <h4 class="animate__animated animate__fadeInUp">Our Newsletter</h4>
                         <p>Subscribe to receive updates on our polygranite sheet solutions.</p>
                         <form action="" method="post">
@@ -231,7 +304,9 @@
         </div>
     </footer>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center" data-aos="zoom-in" data-aos-duration="600"><i class="bi bi-arrow-up-short"></i></a>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center" data-aos="zoom-in"
+        data-aos-duration="600"><i class="bi bi-arrow-up-short"></i></a>
 
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
@@ -242,7 +317,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             try {
                 if (typeof AOS !== 'undefined') {
                     AOS.init({
@@ -260,4 +335,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -168,6 +168,37 @@
             color: #4e73df;
         }
 
+                .services .icon-box i {
+            font-size: 2.5rem;
+            color: #4e73df;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .icon-box {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .icon-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 5px;
+            /* smaller custom gap */
+        }
+
         /* Portfolio Section */
         .portfolio .portfolio-item .portfolio-wrap {
             overflow: hidden;
@@ -352,8 +383,8 @@
             </div>
         </section>
 
-       
-        <section id="services" class="services" data-aos="fade-up">
+
+           <section id="services" class="services" data-aos="fade-up">
             <div class="container">
                 <div class="section-title">
                     <h2 data-aos="fade-in">Our Services</h2>
@@ -361,18 +392,35 @@
                 </div>
                 <div class="row">
                     @foreach ($services as $service)
-                        <div class="col-md-6 {{ $loop->iteration > 2 ? 'mt-4 mt-md-0' : '' }}" data-aos="zoom-in" data-aos-delay="{{ $loop->index * 100 }}">
-                            <div class="icon-box">
+                        <div class="col-md-6 {{ $loop->iteration > 2 ? 'mt-4 mt-md-0' : '' }}" data-aos="zoom-in"
+                            data-aos-delay="{{ $loop->index * 100 }}">
+                            {{-- <div class="icon-box">
                                 <i class="{{ $service->icon }}"></i>
                                 <h4>{{ $service->title }}</h4>
                                 <p>{{ $service->description }}</p>
+                            </div> --}}
+
+                            <div class="icon-box d-flex align-items-center">
+                                {{-- Service Image on Left --}}
+                                <div class="me-0"> {{-- reduced gap from me-3 to me-2 --}}
+                                    <img src="{{ asset('storage/' . $service->icon) }}" alt="Service Icon"
+                                        class="service-icon">
+                                </div>
+
+                                {{-- Content on Right --}}
+                                <div>
+                                    <h4>{{ $service->title }}</h4>
+                                    <p>{{ $service->description }}</p>
+                                </div>
                             </div>
+
+
+
                         </div>
                     @endforeach
                 </div>
             </div>
         </section>
-
         <section id="portfolio" class="portfolio" data-aos="fade-up">
             <div class="container">
                 <div class="section-title">
@@ -409,18 +457,17 @@
         </section>
     </main>
 
-    <footer id="footer" data-aos="fade-up">
+     <footer id="footer" data-aos="fade-up" data-aos-duration="800">
         <div class="footer-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
                         <div class="footer-info">
-                            <h3>Radheya Enterprise</h3>
+                            <h3 class="animate__animated animate__fadeInUp">Radheya Enterprise</h3>
                             <p>
-                                A108 Adam Street <br>
-                                NY 535022, USA<br><br>
-                                <strong>Phone:</strong> +1 5589 55488 55<br>
-                                <strong>Email:</strong> info@example.com<br>
+                                {{ $settings['contact_address'] ?? 'Shop No 04 Midas villa Apt,Sanjay nagar, Dahiwali,Tal-Karjat,Dist-Raigad' }}<br><br>
+                                <strong>Phone:</strong> {{ $settings['contact_phone'] ?? '+91 70665 54459' }}<br>
+                                <strong>Email:</strong> {{ $settings['contact_email'] ?? 'info@radheyaenterprise.com' }}<br>
                             </p>
                             <div class="social-links mt-3">
                                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -431,47 +478,66 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="200">
-                        <h4>Useful Links</h4>
+                    <div class="col-lg-2 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                        <h4 class="animate__animated animate__fadeInUp">Useful Links</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                            <li data-aos="fade-up" data-aos-delay="250" data-aos-duration="600">
+                                <i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}" class="animate__animated animate__fadeInUp">Home</a>
+                            </li>
+                            <li data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">About us</a>
+                            </li>
+                            <li data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">
+                                <i class="bx bx-chevron-right"></i> <a href="{{ route('services') }}" class="animate__animated animate__fadeInUp">Services</a>
+                            </li>
+                            <li data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Terms of service</a>
+                            </li>
+                            <li data-aos="fade-up" data-aos-delay="450" data-aos-duration="600">
+                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInUp">Privacy policy</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="300">
-                        <h4>Our Services</h4>
+                    <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+                        <h4 class="animate__animated animate__fadeInUp">Our Services</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Polygranite Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Interior Solutions</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Custom Installations</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Consulting</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Maintenance</a></li>
+                            <li data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">
+                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInRight">Wall Cladding</a>
+                            </li>
+                            <li data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInRight">False Ceilings</a>
+                            </li>
+                            <li data-aos="fade-up" data-aos-delay="450" data-aos-duration="600">
+                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInRight">Furniture Applications</a>
+                            </li>
+                            <li data-aos="fade-up" data-aos-delay="500" data-aos-duration="600">
+                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInRight">Bathroom Solutions</a>
+                            </li>
+                            <li data-aos="fade-up" data-aos-delay="550" data-aos-duration="600">
+                                <i class="bx bx-chevron-right"></i> <a href="#" class="animate__animated animate__fadeInRight">Kitchen Countertops</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="col-lg-4 col-md-6 footer-newsletter" data-aos="fade-up" data-aos-delay="400">
-                        <h4>Our Newsletter</h4>
-                        <p>Stay updated with Radheya's latest Polygranite innovations.</p>
-                        <form action="{{ route('newsletter.subscribe') }}" method="post">
-                            @csrf
-                            <input type="email" name="email" placeholder="Your Email" required>
-                            <input type="submit" value="Subscribe">
+                    <div class="col-lg-4 col-md-6 footer-newsletter" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                        <h4 class="animate__animated animate__fadeInUp">Our Newsletter</h4>
+                        <p>Subscribe to receive updates on our polygranite sheet solutions.</p>
+                        <form action="" method="post">
+                            <input type="email" name="email"><input type="submit" value="Subscribe">
                         </form>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Radheya Enterprise</span></strong>. All Rights Reserved
+            <div class="copyright" data-aos="fade-up" data-aos-delay="500" data-aos-duration="600">
+                © Copyright <strong><span>Radheya Enterprise</span></strong>. All Rights Reserved
             </div>
-            <div class="credits">
+            <div class="credits" data-aos="fade-up" data-aos-delay="550" data-aos-duration="600">
                 Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
         </div>
     </footer>
+
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

@@ -267,12 +267,12 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{ route('service.store') }}" method="POST">
+                        <form action="{{ route('service.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label for="icon" class="form-label">Icon (Bootstrap Icon Class)</label>
-                                <input type="text" class="form-control" id="icon" name="icon"
-                                    value="{{ old('icon') }}" placeholder="e.g., bi bi-wall" required>
+                                <label for="icon" class="form-label">Upload Icon (Image)</label>
+                                <input type="file" class="form-control" id="icon" name="icon"
+                                    accept="image/*">
                             </div>
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
@@ -286,6 +286,7 @@
                             <button type="submit" class="btn btn-primary">Add Service</button>
                             <a href="{{ route('dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
                         </form>
+
                     </div>
                 </div>
             </div>
